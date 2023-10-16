@@ -6,20 +6,22 @@ import java.util.Random;
 public class Main {
     public static void main(String[] args) {
         Random random = new Random();
-        double[] origin = {51.1792, 73.1894}; // Bridgeport CT USA
-        double[] destination = {41.0772, 73.4687}; // Darien CT USA
+        double[] origin = {7.484403, 80.367822}; // Bridgeport CT USA
+        double[] destination = {7.333438, 79.845349}; // Darien CT USA
 
         double distanceInKm = calculateDistance(origin, destination);
         double distanceInMiles = distanceInKm * 0.621371;
-        final int averageSpeed = 60;
+        final int baseSpeed = 60;
         final double traffic = -0.5 + (random.nextDouble());
         DecimalFormat df = new DecimalFormat("#.##");
-        double time = Double.parseDouble(df.format(distanceInKm/((traffic*averageSpeed)+averageSpeed)));
+        double averageSpeed = (traffic*baseSpeed)+baseSpeed;
+        double time = Double.parseDouble(df.format(distanceInKm/(averageSpeed)));
         String output = time+"h";
         if(time<1){
             output = Double.parseDouble(df.format(time*60)) + " minutes";
         }
         System.out.println("Distance in KM: " + distanceInKm);
+        System.out.println("Average speed: " +  averageSpeed);
         System.out.println("Estimate time: " +  output);
 //        System.out.println("Distance in MI: " + distanceInMiles);
     }
