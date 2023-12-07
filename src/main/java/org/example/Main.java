@@ -2,20 +2,9 @@ package org.example;
 
 import java.text.DecimalFormat;
 import java.util.Random;
-import java.util.UUID;
 
 public class Main {
     public static void main(String[] args) {
-
-        for (int i = 0; i < 100; i++) {
-            String randomID = UUID.randomUUID().toString();
-            System.out.println(randomID);
-        }
-
-        // Print the random ID
-//        System.out.println("Random ID: " + randomID);
-
-
         Random random = new Random();
         double[] origin = {7.484403, 80.367822}; // Bridgeport CT USA
         double[] destination = {7.333438, 79.845349}; // Darien CT USA
